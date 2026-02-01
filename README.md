@@ -74,7 +74,7 @@ J'ai créé un système de routing personnalisé dans `public/index.php` qui fon
 - Possibilité pour les utilisateurs connectés de créer leurs propres projets
 - Upload d'images et gestion des médias
 
-**Blog et articles**
+**Articles**
 
 - Système de publication d'articles techniques
 - Commentaires pour favoriser les échanges
@@ -178,85 +178,26 @@ cd Fablabrobot
 
 #### 2. Configuration de la base de données
 
-Créez d'abord une nouvelle base de données :
+La base de données est fournie directement dans le dépôt Git :
 
-```sql
+database.sql
+
+
+Ce fichier contient :
+
+la structure complète des tables
+
+des données de test (utilisateurs, projets, articles, vidéos)
+
+Import de la base
+
+Créer une base vide :
+
 CREATE DATABASE fablab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
 
-Ensuite, importez la structure des tables :
 
-```sql
--- Table des utilisateurs
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
-    email VARCHAR(150) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user',
-    photo_profil VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+Importer le fichier fablab.sql via phpMyAdmin.
 
--- Table des projets
-CREATE TABLE projects (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(200) NOT NULL,
-    description TEXT,
-    content TEXT,
-    image VARCHAR(255),
-    author_id INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (author_id) REFERENCES users(id)
-);
-
--- Table des articles
-CREATE TABLE articles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(200) NOT NULL,
-    content TEXT,
-    image VARCHAR(255),
-    author_id INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (author_id) REFERENCES users(id)
-);
-
--- Table des vidéos WebTV
-CREATE TABLE videos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(200) NOT NULL,
-    description TEXT,
-    video_url VARCHAR(500),
-    thumbnail VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Table des commentaires
-CREATE TABLE comments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    content TEXT NOT NULL,
-    user_id INT,
-    video_id INT,
-    article_id INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (video_id) REFERENCES videos(id),
-    FOREIGN KEY (article_id) REFERENCES articles(id)
-);
-
--- Table des messages de contact
-CREATE TABLE contact_messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL,
-    sujet VARCHAR(200),
-    message TEXT NOT NULL,
-    status ENUM('nouveau', 'lu', 'traité') DEFAULT 'nouveau',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
 
 #### 3. Configuration des paramètres
 
