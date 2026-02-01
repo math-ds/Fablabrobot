@@ -1,5 +1,5 @@
 <?php
-// app/contrôleurs/AdminWebtvControleur.php
+
 require_once __DIR__ . '/../modèles/AdminWebtvModele.php';
 
 class AdminWebtvControleur

@@ -52,17 +52,27 @@
                     <p>Gérez vos articles et actualités.</p>
                 </div>
                 <div class="card">
-                    <h3>Forum</h3>
-                    <p>Modérez les discussions.</p>
-                </div>
-                <div class="card">
                     <h3>Projets</h3>
                     <p>Suivez l’avancement des projets.</p>
+                </div>
+                <div class="card">
+                 <H3>Utilisateurs</H3>
+                    <p>Gérez les comptes utilisateurs.</p>
+                </div>
+                <div class="card">
+                    <h3>Conctact Utilisateurs</h3>
+                    <p>Gérez les messages reçus des utilisateurs.</p>
                 </div>
                 <div class="card">
                     <h3>WebTV</h3>
                     <p>Ajoutez ou gérez vos vidéos.</p>
                 </div>
+                
+                <div class="card">
+                    <h3>Commentaires</h3>
+                    <p>Gérez les Commentaires des utilisateurs dans la partie WebTV
+                    </p>
+                
             </div>
         </section>
     </div>

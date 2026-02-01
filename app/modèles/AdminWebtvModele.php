@@ -1,5 +1,5 @@
 <?php
-// app/modèles/AdminWebtvModele.php
+
 require_once __DIR__ . '/../config/database.php';
 
 class AdminWebtvModele

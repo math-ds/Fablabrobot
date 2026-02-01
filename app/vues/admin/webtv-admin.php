@@ -1,5 +1,5 @@
 <?php
-// Vue : app/vues/admin/webtv-admin.php
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,17 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestion WebTV - Admin FABLAB</title>
 
-  <!-- Fonts & Icons -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Styles -->
+  
   <link rel="stylesheet" href="../public/css/admin.css">
 </head>
 
 <body>
 <div class="admin-container">
-  <!-- Sidebar -->
+  
   <aside class="sidebar">
     <div>
       <div class="sidebar-logo">
@@ -33,7 +33,7 @@
     </div>
   </aside>
 
-  <!-- Main -->
+  
   <div class="main-content">
     <header class="admin-header">
       <div class="search-bar">
@@ -113,7 +113,7 @@
   </div>
 </div>
 
-<!-- Modal création / modification -->
+
 <div id="videoModal" class="modal">
   <div class="modal-content">
     <div class="modal-header">

@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST" action="">
-            <!-- Nom complet -->
+            
             <div class="form-group">
                 <label for="name" class="form-label">Nom complet</label>
                 <div class="input-group">
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
 
-            <!-- Adresse email -->
+            
             <div class="form-group">
                 <label for="email" class="form-label">Adresse email</label>
                 <div class="input-group">
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
 
-            <!-- Mot de passe -->
+            
             <div class="form-group">
                 <label for="password" class="form-label">Mot de passe</label>
                 <div class="input-group">
@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </small>
             </div>
 
-            <!-- Confirmer le mot de passe -->
+            
             <div class="form-group">
                 <label for="confirm-password" class="form-label">Confirmer le mot de passe</label>
                 <div class="input-group">
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Animation des particules
+    
     const particles = document.getElementById('particles');
     for (let i = 0; i < 50; i++) {
         const p = document.createElement('div');
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particles.appendChild(p);
     }
 
-    // Validation en temps réel des mots de passe
+    
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm-password');
     

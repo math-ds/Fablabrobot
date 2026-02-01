@@ -1,4 +1,3 @@
-/* Container */
 .container {
   display: flex;
   justify-content: center;
@@ -9,7 +8,6 @@
   padding: 40px 20px;
 }
 
-/* Card principale */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -23,20 +21,17 @@
   width: 100%;
 }
 
-/* Titre plus large et mieux espacé */
 .card-header h2 {
   font-size: 2rem;
   letter-spacing: 1px;
 }
 
-/* Bouton plus grand */
 .btn-primary {
   padding: 14px;
   font-size: 1.1rem;
   border-radius: 12px;
 }
 
-/* Champs plus grands */
 .form-control {
   padding: 14px 18px;
   font-size: 1.05rem;

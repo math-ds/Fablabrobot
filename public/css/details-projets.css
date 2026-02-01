@@ -8,7 +8,6 @@
   --text-muted: rgba(245, 245, 245, 0.7);
 }
 
-/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
@@ -16,21 +15,23 @@
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
   color: var(--text-light);
   overflow-x: hidden;
   line-height: 1.7;
 }
 
-/* ========== CONTAINER GLOBAL ========== */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 40px;
 }
 
-/* ========== BOUTON RETOUR ========== */
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -52,7 +53,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* ========== HEADER DU PROJET ========== */
 .project-header {
   position: relative;
   height: 500px;
@@ -80,7 +80,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Dégradé pour lisibilité du texte */
 .project-header::after {
   content: "";
   position: absolute;
@@ -129,7 +128,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* ========== CONTENU PRINCIPAL ========== */
 .project-content {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-color);
@@ -138,14 +136,12 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* === GRILLE === */
 .content-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 60px;
 }
 
-/* ========== TITRES DE SECTION ========== */
 .description-section h2,
 .features-section h2,
 .sidebar h3 {
@@ -167,7 +163,6 @@ body {
   margin-top: 8px;
 }
 
-/* ========== DESCRIPTION ========= */
 .description-section {
   color: var(--text-light);
 }
@@ -180,7 +175,7 @@ body {
   margin-bottom: 40px;
   font-size: 1.05rem;
   line-height: 1.8;
-} /* Espacement harmonisé entre chaque bloc de description */
+}
 .section-block {
   margin-bottom: 60px;
 }
@@ -209,7 +204,6 @@ body {
   color: var(--text-light);
 }
 
-/* ========== TECHNOLOGIES ========= */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
@@ -225,7 +219,6 @@ body {
   font-weight: 500;
 }
 
-/* ========== SIDEBAR ========= */
 .sidebar {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -255,7 +248,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* ========== FEATURES ========= */
 .features-section {
   margin-top: 70px;
 }
@@ -280,7 +272,6 @@ body {
   transform: translateY(-4px);
 }
 
-/* ========== CHALLENGES ========= */
 .challenges-section {
   margin-top: 70px;
   padding: 40px;
@@ -298,7 +289,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* ========== ERREUR ========= */
 .error-page {
   text-align: center;
   padding: 60px 20px;
@@ -314,7 +304,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* ========== SCROLLBAR ========== */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -323,7 +312,6 @@ body {
   border-radius: 3px;
 }
 
-/* ========== RESPONSIVE ========== */
 @media (max-width: 992px) {
   .content-grid {
     grid-template-columns: 1fr;

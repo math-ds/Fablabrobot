@@ -1,5 +1,4 @@
-/* --- Footer: icônes en haut, liens en ligne en dessous --- */
-.site-footer { 
+.site-footer {
   text-align: center;
   padding: 40px 20px 20px;
   background: #1a2332;
@@ -16,7 +15,6 @@
   gap: 32px;
 }
 
-/* Icônes en haut - parfaitement alignées */
 .footer-social-icons {
   display: flex;
   align-items: center;
@@ -29,8 +27,10 @@
   width: auto;
   display: block;
   object-fit: contain;
-  filter: brightness(.95) grayscale(.2);
-  transition: transform .25s ease, filter .25s ease;
+  filter: brightness(0.95) grayscale(0.2);
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 
 .footer-social-icons a:hover .footer-social-icon {
@@ -38,7 +38,6 @@
   filter: brightness(1) grayscale(0);
 }
 
-/* Liens en bas - une seule ligne horizontale */
 .footer-nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -55,16 +54,16 @@
   padding: 0;
 }
 
-.footer-nav-links li { 
-  margin: 0; 
+.footer-nav-links li {
+  margin: 0;
 }
 
 .footer-nav-links a {
   text-decoration: none;
-  color: rgba(245, 245, 245, .85);
+  color: rgba(245, 245, 245, 0.85);
   font-weight: 600;
   font-size: 15px;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
   position: relative;
   padding: 4px 0;
 }
@@ -77,42 +76,40 @@
   width: 0;
   height: 2px;
   background: #00afa7;
-  transition: width .2s ease;
+  transition: width 0.2s ease;
 }
 
-.footer-nav-links a:hover { 
+.footer-nav-links a:hover {
   color: #00afa7;
 }
 
-.footer-nav-links a:hover::after { 
+.footer-nav-links a:hover::after {
   width: 100%;
 }
 
-/* Copyright en bas */
 .site-footer-bottom {
   width: 100%;
   max-width: 1100px;
   margin: 24px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, .12);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-footer-bottom p {
   margin: 0;
-  color: rgba(245, 245, 245, .65);
+  color: rgba(245, 245, 245, 0.65);
   font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer-social-icons {
     gap: 32px;
   }
-  
+
   .footer-social-icon {
     height: 42px;
   }
-  
+
   .footer-nav-links ul {
     gap: 24px;
   }
@@ -122,24 +119,24 @@
   .site-footer {
     padding: 32px 16px 16px;
   }
-  
+
   .footer-social-icons {
     gap: 24px;
   }
-  
+
   .footer-social-icon {
     height: 36px;
   }
-  
+
   .footer-nav-links {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .footer-nav-links ul {
     gap: 20px;
   }
-  
+
   .footer-nav-links a {
     font-size: 14px;
   }

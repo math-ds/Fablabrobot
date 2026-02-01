@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['utilisateur_email'] = $email;
                 $_SESSION['utilisateur_role'] = !empty($role) ? $role : 'Utilisateur';
 
-                // Avatar automatique
+                
                 $initiales = '';
                 if (!empty($nom)) {
                     $parts = preg_split('/\s+/', trim($nom));
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 $_SESSION['utilisateur_avatar'] = "https://via.placeholder.com/40/232e59/ffffff?text=" . $initiales;
 
-                // ✅ Redirection MVC
+                
                 header("Location: ?page=accueil");
                 exit;
             } else {

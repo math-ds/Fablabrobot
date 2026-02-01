@@ -10,9 +10,7 @@ class WebtvModele
         $this->db = getDatabase(); 
     }
 
-    /**
-     * Récupère toutes les vidéos avec filtres optionnels
-     */
+  
     public function all(?string $q = null, ?string $cat = null): array
     {
         $where = [];
@@ -43,9 +41,7 @@ class WebtvModele
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Récupère les catégories distinctes
-     */
+   
     public function categories(): array
     {
         $sql = "SELECT DISTINCT categorie 
@@ -55,9 +51,7 @@ class WebtvModele
         return $this->db->query($sql)->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    /**
-     * Trouve une vidéo par son ID
-     */
+    
     public function findById(int $id): ?array
     {
         $stmt = $this->db->prepare("SELECT * FROM videos WHERE id = :id");
@@ -66,9 +60,7 @@ class WebtvModele
         return $video ?: null;
     }
 
-    /**
-     * Trouve une vidéo par son youtube_id
-     */
+    
     public function findByYoutubeId(string $youtubeId): ?array
     {
         $stmt = $this->db->prepare("SELECT * FROM videos WHERE youtube_id = :y LIMIT 1");
@@ -77,18 +69,14 @@ class WebtvModele
         return $video ?: null;
     }
 
-    /**
-     * Incrémente le compteur de vues
-     */
+    
     public function incrementViews(int $id): void
     {
         $stmt = $this->db->prepare("UPDATE videos SET vues = COALESCE(vues, 0) + 1 WHERE id = :id");
         $stmt->execute([':id' => $id]);
     }
 
-    /**
-     * Compte le nombre total de vidéos
-     */
+    
     public function count(): int
     {
         return (int) $this->db->query("SELECT COUNT(*) FROM videos")->fetchColumn();

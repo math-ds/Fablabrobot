@@ -42,7 +42,7 @@ class ContactControleur
             }
         }
 
-        // Charger la vue avec les variables
+        
         require __DIR__ . '/../vues/contact/contact.php';
     }
 }

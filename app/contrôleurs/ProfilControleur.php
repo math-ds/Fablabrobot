@@ -11,7 +11,7 @@ class ProfilControleur
         $this->db = (new Database())->getConnection();
     }
 
-    /** 🔹 Récupère les infos utilisateur */
+    
     private function getUserById(int $id): ?array
     {
         $stmt = $this->db->prepare("SELECT id, nom, email, role, photo, date_creation, mot_de_passe FROM connexion WHERE id = ?");
@@ -20,7 +20,7 @@ class ProfilControleur
         return $u ?: null;
     }
 
-    /** 🔹 Affiche la page du profil */
+   
     public function index(): void
     {
         if (empty($_SESSION['utilisateur_id'])) {
@@ -36,7 +36,7 @@ class ProfilControleur
             return;
         }
 
-        // ✅ Synchronisation de la session
+       
         $_SESSION['utilisateur_nom']   = $user['nom'];
         $_SESSION['utilisateur_email'] = $user['email'];
         $_SESSION['utilisateur_role']  = $user['role'];
@@ -45,7 +45,7 @@ class ProfilControleur
         include __DIR__ . '/../vues/profil/profil.php';
     }
 
-    /** 🔹 Gère toutes les actions du profil */
+  
     public function updatePhoto(): void
     {
         if (empty($_SESSION['utilisateur_id'])) {
@@ -62,9 +62,7 @@ class ProfilControleur
             exit;
         }
 
-        // ==========================
-        // 🔸 MISE À JOUR NOM / EMAIL
-        // ==========================
+       
         if (isset($_POST['action']) && $_POST['action'] === 'update-info') {
             $nom   = trim($_POST['nom'] ?? '');
             $email = trim($_POST['email'] ?? '');
@@ -75,7 +73,7 @@ class ProfilControleur
                 exit;
             }
 
-            // Vérifie si l'email existe déjà pour un autre compte
+           
             $stmt = $this->db->prepare("SELECT id FROM connexion WHERE email = ? AND id != ?");
             $stmt->execute([$email, $id]);
             if ($stmt->fetch()) {
@@ -94,9 +92,7 @@ class ProfilControleur
             exit;
         }
 
-        // ==========================
-        // 🔸 MODIFICATION MOT DE PASSE
-        // ==========================
+        
         if (isset($_POST['action']) && $_POST['action'] === 'update-password') {
             $old = $_POST['old_password'] ?? '';
             $new = $_POST['new_password'] ?? '';
@@ -114,14 +110,14 @@ class ProfilControleur
                 exit;
             }
 
-            // Vérifie l'ancien mot de passe
+            
             if (!password_verify($old, $user['mot_de_passe'])) {
                 $_SESSION['message'] = "❌ Ancien mot de passe incorrect.";
                 header('Location: ?page=profil');
                 exit;
             }
 
-            // Mise à jour du mot de passe
+            
             $hash = password_hash($new, PASSWORD_DEFAULT);
             $stmt = $this->db->prepare("UPDATE connexion SET mot_de_passe = ? WHERE id = ?");
             $stmt->execute([$hash, $id]);
@@ -131,9 +127,7 @@ class ProfilControleur
             exit;
         }
 
-        // ==========================
-        // 🔸 SUPPRESSION PHOTO
-        // ==========================
+        
         if (isset($_POST['action']) && $_POST['action'] === 'delete') {
             if (!empty($user['photo'])) {
                 $currentPath = __DIR__ . '/../../public/uploads/profils/' . $user['photo'];
@@ -153,9 +147,7 @@ class ProfilControleur
             exit;
         }
 
-        // ==========================
-        // 🔸 MISE À JOUR / UPLOAD PHOTO
-        // ==========================
+        
         if (!isset($_FILES['photo']) || $_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['message'] = "⚠️ Erreur lors du téléversement.";
             header('Location: ?page=profil');
@@ -172,12 +164,12 @@ class ProfilControleur
             exit;
         }
 
-        // Supprime l'ancienne photo
+        
         foreach (glob(__DIR__ . '/../../public/uploads/profils/user_' . $id . '.*') as $old) {
             @unlink($old);
         }
 
-        // Sauvegarde la nouvelle photo
+        
         $fileName = 'user_' . $id . '_' . time() . '.' . $ext;
         $dest = __DIR__ . '/../../public/uploads/profils/' . $fileName;
 
@@ -185,7 +177,7 @@ class ProfilControleur
 
         move_uploaded_file($file['tmp_name'], $dest);
 
-        // Met à jour en BDD
+     
         $stmt = $this->db->prepare("UPDATE connexion SET photo = ? WHERE id = ?");
         $stmt->execute([$fileName, $id]);
 

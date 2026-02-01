@@ -7,7 +7,7 @@
         <span>Retour à l'accueil</span>
     </a>
 
-    <!-- Zone des messages -->
+   
     <?php if (!empty($_SESSION['message'])): ?>
         <div class="alert <?= strpos($_SESSION['message'], 'succès') !== false || strpos($_SESSION['message'], 'mis') !== false ? 'alert-success' : 'alert-error' ?>">
             <i class="fas <?= strpos($_SESSION['message'], 'succès') !== false || strpos($_SESSION['message'], 'mis') !== false ? 'fa-check-circle' : 'fa-exclamation-triangle' ?>"></i>
@@ -17,7 +17,7 @@
     <?php endif; ?>
 
     <div class="profile-wrapper">
-        <!-- En-tête -->
+        
         <div class="profile-header">
             <div class="header-background"></div>
             <div class="header-content">
@@ -32,7 +32,7 @@
                         <div class="avatar-placeholder" id="photoPreviewHeader"><?= htmlspecialchars($initiales) ?></div>
                     <?php endif; ?>
 
-                    <!-- 👑 Badge admin -->
+                    
                     <?php if (isset($user['role']) && strtolower($user['role']) === 'admin'): ?>
                         <div class="avatar-badge" title="Administrateur">
                             <i class="fas fa-crown"></i>
@@ -49,13 +49,13 @@
             </div>
         </div>
 
-        <!-- Contenu principal -->
+        
         <div class="profile-content">
             <div class="content-grid">
 
-                <!-- Colonne principale -->
+               
                 <div class="main-column">
-                    <!-- Informations personnelles -->
+                    
                     <div class="card card-form">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-user-edit"></i></div>
@@ -77,7 +77,7 @@
                         </form>
                     </div>
 
-                    <!-- Mot de passe -->
+                   
                     <div class="card card-password">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-lock"></i></div>
@@ -103,7 +103,7 @@
                         </form>
                     </div>
 
-                    <!-- Photo de profil -->
+                    
                     <div class="card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-camera"></i></div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
 
-                <!-- Sidebar -->
+                
                 <div class="sidebar-column">
                     <div class="card card-stats">
                         <div class="card-header">
@@ -182,13 +182,13 @@
     </div>
 </div>
 
-<!-- JS -->
+
 <script>
 function confirmerSuppression() {
     return confirm("🗑️ Voulez-vous vraiment supprimer votre photo de profil ?");
 }
 
-// Disparition automatique des alertes
+
 setTimeout(() => {
     const alert = document.querySelector('.alert');
     if (alert) {
@@ -197,19 +197,17 @@ setTimeout(() => {
     }
 }, 3000);
 
-// ==========================
-// LOADER PROPRE ET SÉCURISÉ
-// ==========================
+
 document.querySelectorAll('.form-ajax').forEach(form => {
     form.addEventListener('submit', (e) => {
-        // Si une confirmation est refusée, on annule l'overlay
+       
         const hasConfirm = form.getAttribute('onsubmit');
         if (hasConfirm && !confirm("🗑️ Voulez-vous vraiment effectuer cette action ?")) {
             e.preventDefault();
             return false;
         }
 
-        // Création de l’overlay
+        
         const overlay = document.createElement('div');
         overlay.className = 'loading-overlay';
         overlay.innerHTML = `
@@ -219,12 +217,12 @@ document.querySelectorAll('.form-ajax').forEach(form => {
             </div>`;
         document.body.appendChild(overlay);
 
-        // Sécurité : enlève le loader au bout de 10 secondes max
+        
         setTimeout(() => {
             if (document.body.contains(overlay)) overlay.remove();
         }, 10000);
 
-        // Supprime le loader dès que la page est rechargée
+        
         window.addEventListener('beforeunload', () => {
             overlay.remove();
         });

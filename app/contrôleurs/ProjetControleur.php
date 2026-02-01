@@ -7,7 +7,7 @@ class ProjetControleur {
         $modele = new Projet();
         $projet = $modele->getProjetParId($id);
 
-        // Nettoyage pour éviter les "vides" à cause d'espaces ou retours ligne
+        
         if ($projet) {
             foreach ($projet as $key => $value) {
                 if (is_string($value)) {

@@ -8,8 +8,8 @@
 <section class="hero-section"> 
     <h1 class="hero-title">Les Projets</h1>
     <p class="hero-subtitle">
-        Découvrez les projets réalisés au sein du Fablab d’AJC Formation.
-Cette section met en avant des réalisations développées autour de la robotique, de l’électronique et des technologies numériques.
+        Découvrez les projets réalisés au sein du Fablab d'AJC Formation.
+Cette section met en avant des réalisations développées autour de la robotique, de l'électronique et des technologies numériques.
     </p>
 </section>
 <section class="section-recherche">
@@ -24,24 +24,22 @@ Cette section met en avant des réalisations développées autour de la robotiqu
 </div>
 </section>
 
-<!-- === BOUTON CRÉER PROJET (ÉDITEUR) === -->
+
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
 $role = $_SESSION['utilisateur_role'] ?? '';
 ?>
 
-<?php if (in_array($role, ['Admin', 'Éditeur', 'Editeur'])): ?>
-   <?php if (isset($_SESSION['utilisateur_role']) && in_array($_SESSION['utilisateur_role'], ['Admin', 'Éditeur', 'Editeur'])): ?>
+<?php if (in_array($role, ['Admin', 'Éditeur'], true)): ?>
   <div class="projet-action">
     <a href="?page=projet_creation" class="btn-create">
       <i class="fas fa-plus-circle"></i> Créer un projet
     </a>
   </div>
 <?php endif; ?>
-<?php endif; ?>
 
 
-<!-- === SECTION PROJETS RÉCENTS === -->
+
 <section class="featured-section">
     <h2 class="section-title">Projets récents</h2>
 
@@ -49,7 +47,7 @@ $role = $_SESSION['utilisateur_role'] ?? '';
 <?php foreach ($projects as $project): ?>
 
     <?php
-    // 🧠 Catégorisation automatique intelligente
+   
     $txt = strtolower($project['title'] . ' ' . $project['description'] . ' ' . ($project['technologies'] ?? ''));
 
     if (str_contains($txt, "drone") || str_contains($txt, "fpv") || str_contains($txt, "quad")) {
@@ -59,6 +57,16 @@ $role = $_SESSION['utilisateur_role'] ?? '';
     } else {
         $categorie = "autres";
     }
+
+    
+    $imageSrc = '';
+    if (!empty($project['image_url'])) {
+        if (str_starts_with($project['image_url'], 'http://') || str_starts_with($project['image_url'], 'https://')) {
+            $imageSrc = $project['image_url']; 
+        } else {
+            $imageSrc = '../public/images/projets/' . $project['image_url']; 
+        }
+    }
     ?>
 
     <div class="project-card"
@@ -66,8 +74,8 @@ $role = $_SESSION['utilisateur_role'] ?? '';
          onclick="openModal(<?= $project['id']; ?>)">
 
         <div class="project-image">
-            <?php if (!empty($project['image_url'])): ?>
-                <img src="../public/images/projets/<?= htmlspecialchars($project['image_url']) ?>"
+            <?php if (!empty($imageSrc)): ?>
+                <img src="<?= htmlspecialchars($imageSrc) ?>"
                      alt="<?= htmlspecialchars($project['title']) ?>"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <i class="fas fa-code" style="display:none;"></i>
@@ -97,8 +105,19 @@ $role = $_SESSION['utilisateur_role'] ?? '';
 
 </section>
 
-<!-- === MODALES === -->
+
 <?php foreach ($projects as $project): ?>
+<?php
+    
+    $imageSrc = '';
+    if (!empty($project['image_url'])) {
+        if (str_starts_with($project['image_url'], 'http://') || str_starts_with($project['image_url'], 'https://')) {
+            $imageSrc = $project['image_url'];
+        } else {
+            $imageSrc = '../public/images/projets/' . $project['image_url'];
+        }
+    }
+?>
 <div class="modal" id="modal-<?= $project['id']; ?>">
     <div class="modal-content">
         <div class="modal-header">
@@ -110,8 +129,8 @@ $role = $_SESSION['utilisateur_role'] ?? '';
             <div class="modal-layout">
                 <div class="modal-image-section">
                     <div class="modal-image">
-                        <?php if (isset($project['image_url']) && trim($project['image_url']) !== ''): ?>
-                            <img src="../public/images/projets/<?= htmlspecialchars($project['image_url']); ?>" 
+                        <?php if (!empty($imageSrc)): ?>
+                            <img src="<?= htmlspecialchars($imageSrc) ?>" 
                                  alt="<?= htmlspecialchars($project['title']); ?>"
                                  onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <i class="fas fa-code" style="display:none;"></i>
@@ -190,7 +209,7 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const categoryFilter = document.getElementById("categoryFilter");
-  const cards = document.querySelectorAll(".project-card"); // adapte selon ta classe
+  const cards = document.querySelectorAll(".project-card");
 
   function filtrer() {
     const searchText = searchInput.value.toLowerCase();
@@ -204,6 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const matchCategorie = selectedCategory === "all" || category === selectedCategory;
 
       card.style.display = (matchTexte && matchCategorie) ? "block" : "none";
+      
     });
   }
 

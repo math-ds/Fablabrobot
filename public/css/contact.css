@@ -12,7 +12,11 @@
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: linear-gradient(
     135deg,
     var(--background-gradient-start) 0%,
@@ -23,7 +27,6 @@ body {
   line-height: 1.6;
 }
 
-/* Main Container */
 .main-container {
   display: flex;
   justify-content: center;
@@ -34,7 +37,6 @@ body {
   z-index: 10;
 }
 
-/* Contact Card */
 .contact-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -87,7 +89,6 @@ body {
   border-radius: 2px;
 }
 
-/* Form Styles */
 .form-group {
   margin-bottom: 25px;
   position: relative;
@@ -139,7 +140,6 @@ body {
   color: var(--text-color-light);
 }
 
-/* Submit Button */
 .submit-btn {
   width: 100%;
   padding: 15px;
@@ -175,7 +175,6 @@ body {
   transform: none;
 }
 
-/* Messages */
 .message {
   padding: 12px 15px;
   border-radius: 8px;
@@ -196,7 +195,6 @@ body {
   color: #51cf66;
 }
 
-/* Animations */
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -208,7 +206,6 @@ body {
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .contact-card {
     margin: 20px;

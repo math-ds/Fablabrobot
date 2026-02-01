@@ -1,7 +1,5 @@
 <?php
-// ===============================
-// Vue : Mot de passe oublié
-// ===============================
+
 $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
 ?>
 <!DOCTYPE html>
@@ -14,10 +12,10 @@ $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/utilisateurs.css">
 <body>
-    <!-- Particules de fond -->
+    
     <div class="particles" id="particles"></div>
 
-    <!-- Header -->
+  
     <header class="header">
         <div class="nav-container">
             <div class="logo-section">
@@ -27,12 +25,12 @@ $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
         </div>
     </header>
 
-    <!-- Main Content -->
+   
     <main class="main-container">
         <div class="registration-card">
             <h2 class="card-title">Mot de passe oublié</h2>
             
-            <!-- Description -->
+           
             <div class="form-description">
                 <p>Entrez votre adresse email pour recevoir un lien de réinitialisation de votre mot de passe.</p>
             </div>
@@ -69,12 +67,12 @@ $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
         </div>
     </main>
 
-    <!-- Footer -->
+    
     <footer class="footer">
         <p>&copy; 2025 FSR. Tous droits réservés.</p>
     </footer>
 
-    <!-- JavaScript -->
+    
     <script>
         function createParticles() {
             const particles = document.getElementById('particles');
@@ -149,7 +147,7 @@ $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
         document.addEventListener('DOMContentLoaded', createParticles);
     </script>
 
-    <!-- Style interne (juste pour la description) -->
+    
 
 </body>
 </html>

@@ -1,11 +1,8 @@
 <?php
-// ===============================
-// Vue : Article Détail (publique)
-// ===============================
 
 $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
 
-// Connexion BDD
+
 $host = 'localhost';
 $dbname = 'fablab';
 $user = 'root';
@@ -69,7 +66,7 @@ include(__DIR__ . '/../parties/header.php');
       
       <div class="project-detail">
 
-        <!-- En-tête de l’article -->
+       
         <div class="project-header">
           <?php if (!empty($article['image'])): ?>
             <img src="<?= $GLOBALS['baseUrl'] ?>uploads/<?= htmlspecialchars($article['image']) ?>" alt="Image article" class="project-image">
@@ -86,11 +83,11 @@ include(__DIR__ . '/../parties/header.php');
           </div>
         </div>
 
-        <!-- Contenu principal -->
+      
         <div class="project-content">
           <div class="content-grid">
 
-            <!-- Texte de l’article -->
+            
             <div class="main-content">
               <div class="description-section">
                 <h2>📖 Contenu de l'article</h2>
@@ -130,7 +127,7 @@ include(__DIR__ . '/../parties/header.php');
               <?php endif; ?>
             </div>
 
-            <!-- Sidebar -->
+            
             <div class="sidebar">
               <h3>📋 Informations</h3>
 

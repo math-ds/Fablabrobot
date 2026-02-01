@@ -18,11 +18,11 @@ class AdminControleur {
         exit;
     }
 
-    // --- Connexion à la BDD et récupération des projets
+   
     $projects = $this->modele->getAllProjects();
     $total_projects = count($projects);
 
-    // --- On envoie les variables à la vue
+    
     require __DIR__ . '/../vues/admin/projets-admin.php';
 
 }

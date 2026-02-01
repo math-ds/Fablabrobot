@@ -8,15 +8,13 @@ class AuthControleur {
     private $modele;
 
     public function __construct() {
-        // ✅ On récupère la connexion à la BDD via Database.php
+       
         $db = (new Database())->getConnection();
         $this->modele = new AuthModele($db);
        
     }
 
-    /**
-     * Page de connexion
-     */
+   
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
@@ -46,9 +44,7 @@ class AuthControleur {
         require __DIR__ . '/../vues/utilisateurs/login.php';
     }
 
-    /**
-     * Page d'inscription
-     */
+ 
     public function inscription() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nom = $_POST['name'] ?? '';
@@ -74,18 +70,14 @@ class AuthControleur {
         require __DIR__ . '/../vues/utilisateurs/inscription.php';
     }
 
-    /**
-     * Déconnexion
-     */
+ 
     public function deconnexion() {
         session_destroy();
         header("Location: ?page=accueil");
         exit;
     }
 
-    /**
-     * Mot de passe oublié (optionnel)
-     */
+    
     public function mdpOublie() {
         require __DIR__ . '/../../app/vues/utilisateurs/motdepasseoublie.php';
     }

@@ -1,19 +1,16 @@
 <?php
-// ============================================================
-// Fichier : app/vues/parties/header.php
-// En-tête principal du site (public + connecté + admin)
-// ============================================================
 
-// 🔹 Récupération du chemin de base défini dans public/index.php
+
+
 $baseUrl = $GLOBALS['baseUrl'] ?? '/Fablabrobot/public/';
 
-// 🔹 Vérifie si l'utilisateur est connecté
+
 $utilisateurConnecte = isset($_SESSION['utilisateur_id']);
 $nomUtilisateur = $utilisateurConnecte ? $_SESSION['utilisateur_nom'] : '';
 $roleUtilisateur = $utilisateurConnecte ? ($_SESSION['utilisateur_role'] ?? 'Utilisateur') : '';
 $photoUtilisateur = $utilisateurConnecte ? ($_SESSION['utilisateur_photo'] ?? null) : null;
 
-// 🔹 Fonctions utilitaires
+
 function genererInitiales($nom)
 {
     if (empty($nom)) return 'US';
@@ -33,7 +30,7 @@ function genererCouleur($nom)
 $initiales = genererInitiales($nomUtilisateur);
 $couleurAvatar = genererCouleur($nomUtilisateur);
 
-// 🔹 Vérification de l'existence de la photo de profil
+
 $photoPath = __DIR__ . '/../../../public/uploads/profils/' . $photoUtilisateur;
 $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
 ?>
@@ -44,11 +41,11 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AJC FABLAB</title>
 
-  <!-- Frameworks -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-  <!-- Styles du site -->
+  
   <link rel="stylesheet" href="<?= $baseUrl ?>css/header.css">
 </head>
 
@@ -56,17 +53,17 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
   <header>
     <nav class="barre-navigation">
       <div class="conteneur-navigation">
-        <!-- Bouton menu mobile -->
+        
         <button class="bouton-menu" id="boutonMenu" aria-label="Menu">
           <i class="fas fa-bars"></i>
         </button>
 
-        <!-- LOGO -->
+        
         <a href="?page=accueil" class="logo-entete">
           <img src="<?= $baseUrl ?>images/global/AJC_FRW_bleu_simple.png" alt="Logo FBR" />
         </a>
 
-        <!-- LIENS NAVIGATION -->
+        
         <div class="liens-navigation">
           <a href="?page=accueil" class="lien-nav">Accueil</a>
           <a href="?page=articles" class="lien-nav">Articles</a>
@@ -75,7 +72,7 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
           <a href="?page=contact" class="lien-nav">Contact</a>
         </div>
 
-        <!-- UTILISATEUR -->
+        
         <div class="liens-authentification">
           <?php if ($utilisateurConnecte): ?>
             <div class="profil-container">
@@ -94,7 +91,7 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
                 </div>
               </button>
 
-              <!-- MENU DÉROULANT -->
+              
               <div class="profil-dropdown" id="profilDropdown">
                 <div class="profil-dropdown-header">
                   <p class="profil-nom"><?= htmlspecialchars($nomUtilisateur); ?></p>
@@ -119,7 +116,7 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
         </div>
       </div>
 
-      <!-- MENU MOBILE -->
+      
       <div class="menu-mobile" id="menuMobile">
         <a href="?page=accueil" class="lien-nav">Accueil</a>
         <a href="?page=articles" class="lien-nav">Articles</a>
@@ -158,7 +155,7 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
     </nav>
   </header>
 
-  <!-- Script JS du header -->
+  
   <script>
     const boutonMenu = document.getElementById("boutonMenu");
     const menuMobile = document.getElementById("menuMobile");
@@ -188,7 +185,7 @@ $hasPhoto = !empty($photoUtilisateur) && file_exists($photoPath);
     }
   </script>
 
-  <!-- Styles du profil -->
+  
   <style>
     .user-avatar {
       width: 42px;

@@ -10,7 +10,7 @@
 <body>
 
 <div class="admin-container">
-  <!-- Sidebar -->
+ 
   <aside class="sidebar">
     <div>
       <div class="sidebar-logo">
@@ -23,7 +23,7 @@
     </div>
   </aside>
 
-  <!-- Main content -->
+ 
   <div class="main-content">
     <header class="admin-header">
       <div class="search-bar">
@@ -34,7 +34,7 @@
     <section class="dashboard">
       <h1><i class="fas fa-users"></i> Gestion des Utilisateurs</h1>
 
-      <!-- Alert -->
+    
       <?php if (!empty($_SESSION['message'])): ?>
         <div class="alert alert-<?= $_SESSION['message_type'] ?>">
           <i class="fas fa-<?= $_SESSION['message_type'] === 'success' ? 'check-circle' : 'exclamation-circle' ?>"></i>
@@ -43,7 +43,7 @@
         <?php unset($_SESSION['message'], $_SESSION['message_type']); ?>
       <?php endif; ?>
 
-      <!-- Statistiques -->
+      
       <div class="stats-cards">
         <div class="stat-card">
           <div class="stat-card-header">
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <!-- Boutons filtres -->
+      
       <div class="action-buttons">
         <button class="btn btn-primary" onclick="openAddModal()"><i class="fas fa-user-plus"></i> Nouvel Utilisateur</button>
         <button class="btn btn-secondary" onclick="filterUsers('all')">Tous</button>
@@ -84,7 +84,7 @@
         <button class="btn btn-secondary" onclick="filterUsers('utilisateur')">Utilisateurs</button>
       </div>
 
-      <!-- Liste -->
+     
       <div class="users-table">
         <?php if (empty($users)): ?>
           <div class="no-users">

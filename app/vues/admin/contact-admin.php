@@ -10,7 +10,7 @@
 <body>
 
 <div class="admin-container">
-  <!-- ========== SIDEBAR ========== -->
+  
   <aside class="sidebar">
     <div>
       <div class="sidebar-logo">
@@ -23,7 +23,7 @@
     </div>
   </aside>
 
-  <!-- ========== MAIN CONTENT ========== -->
+  
   <div class="main-content">
     <header class="admin-header">
       <div class="search-bar">
@@ -34,7 +34,7 @@
     <section class="dashboard">
       <h1><i class="fas fa-envelope"></i> Gestion des Messages de Contact</h1>
 
-      <!-- Alert -->
+      
       <?php if (!empty($_SESSION['message'])): ?>
         <div class="alert alert-<?= $_SESSION['message_type'] ?>">
           <i class="fas fa-<?= $_SESSION['message_type'] === 'success' ? 'check-circle' : 'exclamation-circle' ?>"></i>
@@ -43,7 +43,7 @@
         <?php unset($_SESSION['message'], $_SESSION['message_type']); ?>
       <?php endif; ?>
 
-      <!-- Statistiques -->
+     
       <div class="contact-stats-cards">
         <div class="contact-stat-card">
           <div class="contact-stat-card-header">
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <!-- Filtres -->
+      
       <div class="contact-filter-buttons">
         <button class="btn btn-primary" onclick="filterMessages('all')">Tous</button>
         <button class="btn btn-secondary" onclick="filterMessages('non_lu')">Non lus</button>
@@ -83,7 +83,7 @@
         <button class="btn btn-secondary" onclick="filterMessages('traite')">Traités</button>
       </div>
 
-      <!-- Liste -->
+   
       <div class="contact-messages-table">
         <?php if (empty($contacts)): ?>
           <div class="no-messages">
@@ -143,7 +143,7 @@
   </div>
 </div>
 
-<!-- ========== MODAL ========== -->
+
 <div id="messageModal" class="contact-modal">
   <div class="contact-modal-content">
     <div class="contact-modal-header">

@@ -14,7 +14,7 @@ public function getAllProjects() {
 }
 
     public function getStatistiques() {
-        // Exemple de récupération de stats (optionnel)
+    
         $stats = [];
         $stats['total_projets'] = $this->db->query("SELECT COUNT(*) FROM projects")->fetchColumn();
         $stats['total_articles'] = $this->db->query("SELECT COUNT(*) FROM articles")->fetchColumn();

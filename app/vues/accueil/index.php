@@ -1,8 +1,8 @@
 <?php
-// Définir la base URL de ton projet
+
 $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
 
-// Inclut le header commun
+
 include(__DIR__ . '/../parties/header.php');
 ?>
 
@@ -13,7 +13,7 @@ include(__DIR__ . '/../parties/header.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accueil - AJC FABLAB</title>
 
-  <!-- Feuilles de style -->
+  
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -28,7 +28,7 @@ include(__DIR__ . '/../parties/header.php');
 <body>
 <main>
 
-  <!-- 🏠 SECTION HERO -->
+ 
   <section class="hero-section">
     <div class="container">
       <div class="hero-content text-center">
@@ -40,7 +40,7 @@ include(__DIR__ . '/../parties/header.php');
     </div>
   </section>
 
-  <!-- 🎠 SECTION CARROUSEL AMÉLIORÉ -->
+ 
   <section class="carousel-section">
     <div class="container">
       <div id="projectCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
@@ -52,7 +52,6 @@ include(__DIR__ . '/../parties/header.php');
         </div>
 
         <div class="carousel-inner">
-          <!-- Slide 1 - Image d'accueil sans bouton -->
           <div class="carousel-item active">
             <div class="carousel-image-wrapper">
               <img src="../public/images/accueil/carousel_index1.jpg" class="d-block w-100 carousel-img" alt="Innovation technologique" />
@@ -66,7 +65,7 @@ include(__DIR__ . '/../parties/header.php');
             </div>
           </div>
 
-          <!-- Slide 2 - Projets -->
+          
           <div class="carousel-item">
             <div class="carousel-image-wrapper">
               <img src="../public/images/accueil/carousel_index4.jpg" class="d-block w-100 carousel-img" alt="Nos projets" />
@@ -83,7 +82,7 @@ include(__DIR__ . '/../parties/header.php');
             </div>
           </div>
 
-          <!-- Slide 3 - Articles -->
+          
           <div class="carousel-item">
             <div class="carousel-image-wrapper">
               <img src="../public/images/accueil/carousel_index3.png" class="d-block w-100 carousel-img" alt="Nos articles" />
@@ -100,7 +99,7 @@ include(__DIR__ . '/../parties/header.php');
             </div>
           </div>
 
-          <!-- Slide 4 - Vidéos -->
+          
           <div class="carousel-item">
             <div class="carousel-image-wrapper">
               <img src="../public/images/accueil/carousel_index2.png" class="d-block w-100 carousel-img" alt="Nos vidéos" />
@@ -130,7 +129,7 @@ include(__DIR__ . '/../parties/header.php');
     </div>
   </section>
 
-  <!-- 💡 SECTION DOMAINES D'EXPERTISE -->
+  
   <section class="featured-projects">
     <div class="container">
       <div class="section-header text-center">
@@ -200,7 +199,7 @@ include(__DIR__ . '/../parties/header.php');
 
 
 
-<!-- Scripts -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {

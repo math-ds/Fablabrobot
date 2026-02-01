@@ -7,18 +7,14 @@ class AuthModele {
         $this->db = $db;
     }
 
-    /**
-     * 🔍 Récupère un utilisateur par email
-     */
+  
     public function getUserByEmail($email) {
         $stmt = $this->db->prepare("SELECT * FROM connexion WHERE email = ?");
         $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * ➕ Crée un nouvel utilisateur
-     */
+    
     public function createUser($nom, $email, $mot_de_passe, $role = 'Utilisateur') {
         $stmt = $this->db->prepare("
             INSERT INTO connexion (nom, email, mot_de_passe, role)

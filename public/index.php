@@ -1,8 +1,5 @@
 <?php
-// ======================================================
-// Fichier : public/index.php
-// Routeur principal (MVC)
-// ======================================================
+
 session_start();
 
 
@@ -28,7 +25,7 @@ $page = $_GET['page'] ?? 'accueil';
 try {
     switch ($page) {
 
-        // ------------------ Public ------------------
+        
         case 'accueil':
             load_controller('app/contrôleurs/AccueilControleur.php');
             (new AccueilControleur())->index();
@@ -96,14 +93,14 @@ case 'projet_enregistrer':
    case 'profil':
             load_controller('app/contrôleurs/ProfilControleur.php');
             $ctrl = new ProfilControleur();
-            // ✅ Traite tout POST (upload OU delete) dans la même méthode
+            
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ctrl->updatePhoto();
             } else {
                 $ctrl->index();
             }
             break;
-        // ------------------ Auth ------------------
+        
         case 'login':
             load_controller('app/contrôleurs/AuthControleur.php');
             (new AuthControleur())->login();
@@ -124,7 +121,7 @@ case 'projet_enregistrer':
             (new AuthControleur())->mdpOublie();
             break;
 
-        // ------------------ Admin ------------------
+        
         case 'admin':
             load_controller('app/contrôleurs/AdminDashboardControleur.php');
             (new AdminDashboardControleur())->index();
@@ -150,13 +147,13 @@ case 'projet_enregistrer':
             (new AdminCommentairesControleur())->handleRequest($_POST['action'] ?? null);
             break;
 
-        // 👥 Gestion des utilisateurs (Admin)
+        
         case 'admin-utilisateurs':
             load_controller('app/contrôleurs/AdminUtilisateursControleur.php');
             (new AdminUtilisateursControleur())->handleRequest($_POST['action'] ?? null);
             break;
 
-        // 👥 Alias optionnel pour accéder à la même page via une autre route
+        
         case 'utilisateurs-admin':
             load_controller('app/contrôleurs/AdminUtilisateursControleur.php');
             (new AdminUtilisateursControleur())->handleRequest($_POST['action'] ?? null);
@@ -167,7 +164,7 @@ case 'projet_enregistrer':
             (new AdminContactControleur())->handleRequest($_POST['action'] ?? null);
             break;
 
-        // ------------------ Default ------------------
+        
         default:
             load_controller('app/contrôleurs/AccueilControleur.php');
             (new AccueilControleur())->index();

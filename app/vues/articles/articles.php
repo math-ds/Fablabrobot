@@ -1,15 +1,11 @@
 <?php 
-// ===============================
-// Vue : Articles (publique)
-// ===============================
 
-// base URL de ton projet (à adapter selon ton dossier exact)
 $GLOBALS['baseUrl'] = '/Fablabrobot/public/';
 
-// Inclut ton header global
+
 include(__DIR__ . '/../parties/header.php');
 
-// Connexion BDD
+
 $host = 'localhost';
 $dbname = 'fablab';
 $user = 'root';
@@ -26,12 +22,12 @@ try {
 }
 ?>
 <?php
-// Assure-toi que la session est démarrée
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Vérifie le rôle de l'utilisateur
+
 $roleUtilisateur = $_SESSION['utilisateur_role'] ?? 'Visiteur';
 ?>
 
@@ -43,11 +39,11 @@ $roleUtilisateur = $_SESSION['utilisateur_role'] ?? 'Visiteur';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Articles - FABLAB</title>
 
-  <!-- Polices et icônes -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Feuilles de style -->
+  
   
   <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/header.css">
   <link rel="stylesheet" href="<?= $GLOBALS['baseUrl'] ?>css/article.css">
@@ -63,12 +59,10 @@ $roleUtilisateur = $_SESSION['utilisateur_role'] ?? 'Visiteur';
 </section>
 <section class="section-recherche">
   <div class="search-filter">
-  <input type="text" id="searchInput" placeholder=" Rechercher un projet...">
+  <input type="text" id="searchInput" placeholder=" Rechercher un article...">
   <select id="categoryFilter">
     <option value="all">Toutes les catégories</option>
-    <option value="robotique">je mets quoi ?</option>
-    <option value="drone">je sais pas quoi mettre ?</option>
-    <option value="électronique">je sais toujours pas quoi mettre ?</option>
+   
   </select>
 </div>
 </section>
@@ -96,12 +90,26 @@ $roleUtilisateur = $_SESSION['utilisateur_role'] ?? 'Visiteur';
         <div class="project-card">
           <div class="project-image">
             <?php if (!empty($article['image_url'])): ?>
-              <img src="<?= $GLOBALS['baseUrl'] ?>uploads/<?= htmlspecialchars($article['image_url']); ?>" 
+              <?php
+              
+              $imageUrl = $article['image_url'];
+              if (!preg_match('/^https?:\/\//i', $imageUrl)) {
+                  
+                  $imageUrl = $GLOBALS['baseUrl'] . $imageUrl;
+              }
+              
+              ?>
+              <img src="<?= htmlspecialchars($imageUrl); ?>" 
                    alt="<?= htmlspecialchars($article['titre']); ?>"
+                   loading="lazy"
                    onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <i class="fas fa-newspaper" style="display:none;"></i>
+              <div class="image-fallback" style="display:none; width: 100%; height: 100%; background: linear-gradient(135deg, #00afa7, #008f88); display: none; align-items: center; justify-content: center;">
+                <i class="fas fa-newspaper" style="font-size: 3rem; color: white; opacity: 0.7;"></i>
+              </div>
             <?php else: ?>
-              <i class="fas fa-newspaper"></i>
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00afa7, #008f88); display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-newspaper" style="font-size: 3rem; color: white; opacity: 0.7;"></i>
+              </div>
             <?php endif; ?>
           </div>
 
@@ -143,21 +151,23 @@ function createParticles() {
   }
 }
 document.addEventListener('DOMContentLoaded', createParticles);
-// Filtrage des projets
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const categoryFilter = document.getElementById("categoryFilter");
-  const cards = document.querySelectorAll(".project-card"); // adapte selon ta classe
+  const cards = document.querySelectorAll(".project-card");
 
   function filtrer() {
     const searchText = searchInput.value.toLowerCase();
     const selectedCategory = categoryFilter.value.toLowerCase();
 
     cards.forEach(card => {
-      const title = card.querySelector("h3, .project-titre").textContent.toLowerCase();
+      const title = card.querySelector(".project-title").textContent.toLowerCase();
+      const description = card.querySelector(".project-description").textContent.toLowerCase();
       const category = card.dataset.categorie?.toLowerCase() || "autre";
 
-      const matchTexte = title.includes(searchText);
+      const matchTexte = title.includes(searchText) || description.includes(searchText);
       const matchCategorie = selectedCategory === "all" || category === selectedCategory;
 
       card.style.display = (matchTexte && matchCategorie) ? "block" : "none";

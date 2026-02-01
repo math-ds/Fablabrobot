@@ -1,5 +1,5 @@
 <?php
-// app/contrôleurs/AdminArticlesControleur.php
+
 require_once __DIR__ . '/../modèles/AdminArticlesModele.php';
 
 class AdminArticlesControleur

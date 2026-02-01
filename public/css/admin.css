@@ -50,17 +50,12 @@ body {
   background: #008f88;
 }
 
-/* =========================
-   CONTAINER PRINCIPAL
-========================= */
 .admin-container {
   display: flex;
   width: 100%;
+  margin-left: auto;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
 .sidebar {
   width: 250px;
   background: rgba(25, 26, 40, 0.95);
@@ -157,9 +152,6 @@ body {
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
 .main-content {
   margin-left: 250px;
   flex: 1;
@@ -170,9 +162,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* =========================
-   HEADER
-========================= */
 .admin-header {
   background: rgba(25, 26, 40, 0.95);
   border-bottom: 1px solid var(--card-border);
@@ -213,9 +202,6 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 175, 167, 0.1);
 }
 
-/* =========================
-   DASHBOARD (page principale)
-========================= */
 .dashboard {
   padding: 40px 30px;
   flex: 1;
@@ -234,9 +220,6 @@ body {
   font-size: 2.2rem;
 }
 
-/* =========================
-   CARDS DE STATISTIQUES
-========================= */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -279,9 +262,6 @@ body {
   margin: 15px 0;
 }
 
-/* =========================
-   BOUTONS D'ACTION
-========================= */
 .action-buttons {
   display: flex;
   gap: 10px;
@@ -289,9 +269,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* =========================
-   BOUTONS
-========================= */
 .btn {
   padding: 12px 25px;
   border-radius: 10px;
@@ -361,9 +338,6 @@ body {
   font-size: 1.05rem;
 }
 
-/* =========================
-   ALERTS & MESSAGES
-========================= */
 .alert {
   padding: 15px 20px;
   border-radius: 10px;
@@ -414,9 +388,6 @@ body {
   }
 }
 
-/* =========================
-   TABLES UNIFIÉES (Articles & Projets)
-========================= */
 .articles-table,
 .projects-table {
   background: var(--card-bg);
@@ -444,7 +415,6 @@ body {
   margin: 0;
 }
 
-/* Tables */
 .articles-table table,
 .projects-table table {
   width: 100%;
@@ -483,7 +453,6 @@ body {
   background: rgba(0, 175, 167, 0.05);
 }
 
-/* Colonne image : largeur fixe */
 .articles-table td:first-child,
 .articles-table th:first-child,
 .projects-table td:first-child,
@@ -492,7 +461,6 @@ body {
   text-align: center;
 }
 
-/* Images miniatures */
 .article-image-thumb,
 .project-image-thumb {
   width: 100px;
@@ -517,7 +485,6 @@ body {
   margin: 0 auto;
 }
 
-/* Titres */
 .article-title,
 .project-title {
   font-weight: 600;
@@ -529,7 +496,6 @@ body {
   white-space: nowrap;
 }
 
-/* Extraits */
 .article-excerpt,
 .project-excerpt {
   display: block;
@@ -541,14 +507,12 @@ body {
   font-size: 0.9rem;
 }
 
-/* Actions de la table */
 .table-actions {
   display: flex;
   gap: 8px;
   justify-content: center;
 }
 
-/* Badges de statistiques */
 .stats-badge {
   background: rgba(0, 175, 167, 0.2);
   color: var(--primary-color);
@@ -559,9 +523,6 @@ body {
   display: inline-block;
 }
 
-/* =========================
-   BADGES & TAGS
-========================= */
 .badge {
   display: inline-block;
   padding: 5px 12px;
@@ -590,9 +551,6 @@ body {
   color: var(--warning-color);
 }
 
-/* =========================
-   FORMULAIRES
-========================= */
 .form-group {
   margin-bottom: 20px;
 }
@@ -650,9 +608,6 @@ body {
   margin-top: 30px;
 }
 
-/* =========================
-   MODAL (Articles & Projets)
-========================= */
 .modal {
   display: none;
   position: fixed;
@@ -724,9 +679,6 @@ body {
   transform: rotate(90deg);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 @media (max-width: 1024px) {
   .sidebar {
     width: 200px;
@@ -843,9 +795,6 @@ body {
   }
 }
 
-/* =========================
-   ANIMATIONS & UTILITIES
-========================= */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -924,11 +873,7 @@ body {
 .p-4 {
   padding: 40px;
 }
-/* ==============================================
-   🎨 Styles spécifiques à la page Utilisateurs Admin
-   ============================================== */
 
-/* Cartes de statistiques */
 .stats-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -974,7 +919,6 @@ body {
   margin-top: 5px;
 }
 
-/* Boutons d’action et filtres */
 .action-buttons {
   display: flex;
   gap: 10px;
@@ -1008,7 +952,6 @@ body {
   border-color: var(--primary-color);
 }
 
-/* Table des utilisateurs */
 .users-table {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -1058,7 +1001,6 @@ tr:hover {
   background: rgba(0, 175, 167, 0.05);
 }
 
-/* Infos utilisateur */
 .user-info {
   display: flex;
   align-items: center;
@@ -1094,7 +1036,6 @@ tr:hover {
   font-size: 0.85rem;
 }
 
-/* Badges de rôles */
 .role-badge {
   padding: 6px 14px;
   border-radius: 20px;
@@ -1121,13 +1062,11 @@ tr:hover {
   border: 1px solid rgba(40, 167, 69, 0.3);
 }
 
-/* Table actions */
 .table-actions {
   display: flex;
   gap: 8px;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -1278,7 +1217,6 @@ tr:hover {
   opacity: 0.5;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   table {
     font-size: 0.9rem;
@@ -1296,9 +1234,7 @@ tr:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* ==============================================
-   🎨 Styles spécifiques à la page Contact Admin
-   ============================================== */
+
 .contact-stats-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1348,6 +1284,7 @@ tr:hover {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  margin: 20px 0 25px 0;
 }
 
 .contact-filter-btn {
@@ -1369,32 +1306,19 @@ tr:hover {
   border-color: var(--primary-color);
 }
 
-/* Table */
 .contact-messages-table {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 15px;
-  overflow: hidden;
+  overflow-x: auto;
   backdrop-filter: blur(10px);
-}
-
-.contact-table-header {
-  background: rgba(0, 175, 167, 0.1);
-  padding: 20px;
-  border-bottom: 1px solid var(--card-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contact-table-header h2 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
+  margin-top: 10px;
 }
 
 .contact-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .contact-table thead {
@@ -1409,10 +1333,38 @@ tr:hover {
   border-bottom: 2px solid var(--card-border);
 }
 
+.contact-table th:nth-child(1) {
+  width: 20%;
+}
+
+.contact-table th:nth-child(2) {
+  width: 15%;
+}
+
+.contact-table th:nth-child(3) {
+  width: 25%;
+}
+
+.contact-table th:nth-child(4) {
+  width: 15%;
+}
+
+.contact-table th:nth-child(5) {
+  width: 10%;
+}
+
+.contact-table th:nth-child(6) {
+  width: 15%;
+}
+
 .contact-table td {
   padding: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--text-color-light);
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .contact-table tr:hover {
@@ -1424,15 +1376,23 @@ tr:hover {
   font-weight: 600;
 }
 
-/* Messages */
 .contact-message-nom {
   font-weight: 600;
   color: var(--primary-color);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .contact-message-email {
   color: var(--text-muted);
   font-size: 0.9rem;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
 }
 
 .contact-message-sujet,
@@ -1448,7 +1408,27 @@ tr:hover {
   font-size: 0.9rem;
 }
 
-/* Modal */
+.contact-table th:nth-child(2),
+.contact-table td:nth-child(2) {
+  padding-left: 30px;
+}
+
+.form-group select {
+  background-color: rgba(25, 26, 40, 0.95);
+  color: #f5f5f5;
+}
+
+.form-group select option {
+  background-color: #191a28;
+  color: #f5f5f5;
+}
+
+.form-group select option:checked,
+.form-group select option:hover {
+  background-color: #00afa7;
+  color: #ffffff;
+}
+
 .contact-modal {
   display: none;
   position: fixed;
@@ -1520,7 +1500,6 @@ tr:hover {
   opacity: 0.5;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .contact-table {
     font-size: 0.9rem;
@@ -1539,9 +1518,9 @@ tr:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* === ADMIN WEBTV FIX === */
+
 .admin-main {
-  margin-left: 250px; /* correspond à la largeur de ta sidebar */
+  margin-left: 250px;
   padding: 40px;
   min-height: 100vh;
   background: linear-gradient(135deg, #191a28 0%, #232e59 100%);
@@ -1584,7 +1563,6 @@ tr:hover {
   transform: translateY(-2px);
 }
 
-/* Table design */
 .table-wrapper {
   overflow-x: auto;
 }
@@ -1614,7 +1592,6 @@ tr:hover {
   background: rgba(0, 175, 167, 0.08);
 }
 
-/* Action buttons */
 .actions {
   display: flex;
   gap: 10px;
@@ -1648,7 +1625,6 @@ tr:hover {
   color: white;
 }
 
-/* Empty data */
 .no-data {
   text-align: center;
   padding: 80px 20px;

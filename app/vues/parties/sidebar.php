@@ -10,14 +10,14 @@ function isActive($page, $current_page) {
 
 <aside class="sidebar">
   <div>
-    <!-- Logo -->
+   
     <div class="sidebar-logo">
       <a href="/fablabrobot/public/?page=accueil" class="sidebar-logo">
         <img src="../public/images/global/ajc_logo_blanc.png" alt="AJC Logo">
       </a>
     </div>
 
-    <!-- Navigation -->
+    
     <nav class="sidebar-nav">
   <a href="?page=admin" class="<?= isActive('admin', $current_page) ?>">
     <i class="fas fa-home"></i> Dashboard
@@ -44,7 +44,6 @@ function isActive($page, $current_page) {
 
   </div>
 
-  <!-- Bouton Déconnexion -->
   <div class="sidebar-footer">
     <a href="?page=logout" class="logout-btn">
       <i class="fas fa-sign-out-alt"></i> Déconnexion
